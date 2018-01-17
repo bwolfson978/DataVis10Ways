@@ -14,7 +14,7 @@ Your goal is to use 10 different tools to make the following chart:
 
 ![ggplot2](img/ggplot2.png)
 
-These features should be preserved in your replication:
+These features should be preserved as much as possible in your replication:
 
 - Data positioning: it should be a downward-trending scatterplot as shown.  Weight should be on the x-axis and MPG on the y-axis.
 - Scales: Note the scales do not start at 0.
@@ -23,10 +23,14 @@ These features should be preserved in your replication:
 - Size mapping to Weight.
 - Opacity of circles set to 0.5 or 50%.
 
-Nothing else is required. This includes:
+Other features are not required. This includes:
 
 - The background grid.
 - The legends.
+
+Note that some software packages will make it impossible to perfectly preserve the above requirements. Be sure to note where you deviate.
+
+Improvements are also welcome as part of Technical and Design achievements.
 
 Libraries, Tools, Languages
 ---
@@ -41,7 +45,9 @@ Otherwise, you should seek tools and libraries to fill out your 10.
 Below are a few ideas. Do not limit yourself to this list!
 Some are poor choices (like SPSS).
 
-- R + ggplot2
+I have marked a few that are strongly suggested.
+
+- R + ggplot2 `<- definitely worth trying`
 - Excel
 - SPSS
 - d3 `<- since the rest of the class uses this, it's a good idea to use it`
@@ -83,20 +89,18 @@ Other Requirements
 ---
 
 0. Your code should be forked from the GitHub repo and linked using GitHub pages.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `R-ggplot, matlab, mathematica, Excel` and so on.
+1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
 2. Your writeup (readme.md in the repo) should also contain the following:
 
-- Description of the technical achievements you attempted with this visualization.
+- Description of the Technical achievements you attempted with this visualization.
   - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the design achievements you attempted with this visualization.
+- Description of the Design achievements you attempted with this visualization.
   - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-The assignment is due by 11:59p on Sep 19.
 
 GitHub Details
 ---
 
-- Fork the [GitHub Repository for Assignment 2](http://github.com/cs573-16f/02-DataVis-10ways). You now have a copy associated with your username.
+- Fork the GitHub Repository. You now have a copy associated with your username.
 - Make changes to fulfill the project requirements. 
 - To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
 
@@ -107,7 +111,7 @@ Grades on a 120 point scale.
 24 points will be based on your Technical and Design achievements, as explained in your readme. 
 
 Make sure you include the files necessary to reproduce your plots.
-You may structure these in folders if helpful.
+You should structure these in folders if helpful.
 We will choose some at random to run and test.
 
 **NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
@@ -127,3 +131,11 @@ While it takes time to find the correct documentation, these functions made the 
 # d3...
 
 (And so on...)
+
+
+## Technical Achievements
+- **Proved P=NP**: Using a combination of...
+- **Solved AI**: ...
+
+### Design Achievements
+- **Re-vamped Apple's Design Philosophy**: Shown in my colorscheme...
