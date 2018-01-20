@@ -116,19 +116,15 @@ We will choose some at random to run and test.
 
 **NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
 
-# R + ggplot2 + R Markdown
+# R + ggplot2
 
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
-
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
-
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
-
+Using ggplot2 with R within RStudio was very straightforward after Lane did a similar demo in class.
+I found it interesting how setting the size and colour within the geom_point function
+automatically scaled to the size of the data. I was very surprised to just type one line of code and see the
+exact chart laid out in the example appear.
 ![ggplot2](img/ggplot2.png)
 
-# d3...
+# d3
 
 Recreating this scatterplot using d3 was relatively straightforward with the
 help of bl.ocks.org but still posed a couple smaller obstacles. Initially the data was not showing up
