@@ -130,7 +130,14 @@ While it takes time to find the correct documentation, these functions made the 
 
 # d3...
 
-(And so on...)
+Recreating this scatterplot using d3 was relatively straightforward with the
+help of bl.ocks.org but still posed a couple smaller obstacles. Initially the data was not showing up
+because I was attempting to append to the svg inside the d3.csv function which was creating an empty
+visualization due to it's asynchronous nature. Moving the code out into it's own function solved this. Additionally, some of
+the circles of the scatterplot were initially right on top of the axes. In order to give some space/padding, I added a calculated cushion
+onto both sides of the x and y range so that all the circles were a set distance away from the x and y axes. 
+![d3](img/d3.png)
+
 
 
 ## Technical Achievements
@@ -139,3 +146,10 @@ While it takes time to find the correct documentation, these functions made the 
 
 ### Design Achievements
 - **Re-vamped Apple's Design Philosophy**: Shown in my colorscheme...
+
+## Sources
+http://learnjsdata.com/read_data.html
+https://bl.ocks.org/d3noob/6f082f0e3b820b6bf68b78f2f7786084
+http://www.d3noob.org/2016/08/changing-number-of-ticks-on-axis-in.html
+http://bl.ocks.org/jfreels/6812882
+https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e

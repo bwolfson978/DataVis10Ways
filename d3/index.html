@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+</head>
+<body>
+<script>
+    // Set the dimensions and margins of the diagram
+    var margin = {top: 20, right: 90, bottom: 50, left: 90},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    // set ranges
+    var x = d3.scaleLinear().range([0, width]);
+    var y = d3.scaleLinear().range([height, 0]);
+
+    // append the svg object to the body of the page
+    // appends a 'group' element to 'svg'
+    // moves the 'group' element to the top left margin
+    var svg = d3.select("body").append("svg")
+        .attr("width", width + margin.right + margin.left)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate("
+            + margin.left + "," + margin.top + ")")
+
+    var dataset = [];
+    var colorMap = {
+        "bmw" : 'red',
+        "ford" : 'yellow',
+        "honda" : 'green',
+        "mercedes" : 'blue',
+        "toyota" : 'purple'
+    };
+    d3.csv("cars-sample.csv", function(data) {
+        data.forEach(function (d) {
+            //Convert strings to js numbers
+            d.Acceleration = +d.Acceleration;
+            d.Cylinders = +d.Cylinders;
+            d.Displacement = +d.Displacement;
+            d.Horsepower = +d.Horsepower;
+            d.MPG = +d.MPG;
+            d["Model.Year"] = +d["Model.Year"];
+            d.Weight = +d.Weight;
+        });
+
+        console.log(data);
+        dataset = data;
+        populate(dataset);
+    });
+
+    function populate(source){
+        //scale the range of the data
+        var xrangeArray = d3.extent(dataset, function(d){ return d.Weight; });
+        var xrange = xrangeArray[1] - xrangeArray[0];
+        var xcushion = xrange / 20;
+        x.domain([xrangeArray[0] - xcushion, xrangeArray[1] + xcushion]);
+
+        var yrangeArray = d3.extent(dataset, function(d){ return d.MPG; });
+        var yrange = yrangeArray[1] - yrangeArray[0];
+        var ycushion = yrange / 20;
+        y.domain([yrangeArray[0] - ycushion, yrangeArray[1] + ycushion]);
+
+        //add scatterplot
+        svg.selectAll("dot").data(dataset).enter()
+            .append("circle")
+            .attr("r", function(d){return d.Weight/500;})
+            .attr("cx", function(d) {return x(d.Weight);})
+            .attr("cy", function(d) {return y(d.MPG);})
+            .style("opacity", 0.5)
+            .attr("fill", function(d) {return colorMap[d.Manufacturer];});
+
+        // Add the X Axis
+        svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x).ticks(4));
+
+        // text label for the x axis
+        svg.append("text")
+            .attr("transform",
+                "translate(" + (width/2) + " ," +
+                (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .text("Weight");
+
+        // Add the Y Axis
+        svg.append("g")
+            .call(d3.axisLeft(y).ticks(4));
+
+        // text label for the y axis
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x",0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("MPG");
+    }
+
+
+</script>
+</body>
+</html>
