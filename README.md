@@ -153,3 +153,5 @@ https://bl.ocks.org/d3noob/6f082f0e3b820b6bf68b78f2f7786084
 http://www.d3noob.org/2016/08/changing-number-of-ticks-on-axis-in.html
 http://bl.ocks.org/jfreels/6812882
 https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e
+http://www.r-tutor.com/r-introduction/data-frame/data-import
+http://www.cookbook-r.com/Graphs/Scatterplots_(ggplot2)/
