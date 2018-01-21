@@ -144,6 +144,7 @@ a color attribute was accessible through a javascript object mapping during plot
 correponding colors to pass into the scatter() function. I felt the urge to be able to see in code each iteration behind this function. I also had trouble getting the tick marks in the desired locations. Similarly to using the extent(min,max)
 function in d3/js to find the range of the data at hand, I was using the numpy.arange() function in python. I couldn't figure out how to shift the returned tick values
 to the nearest 1000 so just manually added the offset.
+![matplotlib](img/matplotlib.png)
 
 
 
