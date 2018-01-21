@@ -146,6 +146,12 @@ function in d3/js to find the range of the data at hand, I was using the numpy.a
 to the nearest 1000 so just manually added the offset.
 ![matplotlib](img/matplotlib.png)
 
+# tableau
+
+Using tableau provided a very seamless, easy to use interface for visualizing this scatterplot. My favorite feature was just
+being able to drag and drop the weight measure and manufacturer dimension over the size and color boxes in the marks area. Adjusting axes
+was also very simple as well. Tableau also identified null values and prompted the option to remove them from the dataset.
+![tableau](img/tableau.png)
 
 
 ## Technical Achievements
