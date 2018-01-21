@@ -134,6 +134,17 @@ the circles of the scatterplot were initially right on top of the axes. In order
 onto both sides of the x and y range so that all the circles were a set distance away from the x and y axes. 
 ![d3](img/d3.png)
 
+# python + matplotlib
+
+This was definitely the hardest visualization to recreate so far in the project. First off, loading the data
+was a bit harder upfront because it required essentially reading the csv into a 2d array then taking out columns
+of data using python array operations. What further confused me was numpy arrays. Specifying a different color for each point
+was much more difficult than in ggplot2 where the geom_point function automatically assigned colors to categorical data or d3 where
+a color attribute was accessible through a javascript object mapping during plotting. Matplotlib and numpy required assembling a whole new array of
+correponding colors to pass into the scatter() function. I felt the urge to be able to see in code each iteration behind this function. I also had trouble getting the tick marks in the desired locations. Similarly to using the extent(min,max)
+function in d3/js to find the range of the data at hand, I was using the numpy.arange() function in python. I couldn't figure out how to shift the returned tick values
+to the nearest 1000 so just manually added the offset.
+
 
 
 ## Technical Achievements
@@ -151,3 +162,6 @@ http://bl.ocks.org/jfreels/6812882
 https://bl.ocks.org/d3noob/23e42c8f67210ac6c678db2cd07a747e
 http://www.r-tutor.com/r-introduction/data-frame/data-import
 http://www.cookbook-r.com/Graphs/Scatterplots_(ggplot2)/
+https://pythonprogramming.net/reading-csv-files-python-3/
+https://plot.ly/matplotlib/scatter/#basic-matplotlib-scatter-plot
+https://stackoverflow.com/questions/12236566/setting-different-color-for-each-series-in-scatter-plot-on-matplotlib
