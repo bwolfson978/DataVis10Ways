@@ -3,118 +3,6 @@
 Assignment 2 - Data Visualization, 10 Ways  
 ===
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... 10 times. 
-
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
-
-I have provided a small dataset about cars, `cars-sample.csv`.
-Each row contains a car and several variables about it, including miles-per-gallon, manufacturer, and more.
-
-Your goal is to use 10 different tools to make the following chart:
-
-![ggplot2](img/ggplot2.png)
-
-These features should be preserved as much as possible in your replication:
-
-- Data positioning: it should be a downward-trending scatterplot as shown.  Weight should be on the x-axis and MPG on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at 10, 20, 30, etcetera.
-- Color mapping to Manufacturer.
-- Size mapping to Weight.
-- Opacity of circles set to 0.5 or 50%.
-
-Other features are not required. This includes:
-
-- The background grid.
-- The legends.
-
-Note that some software packages will make it impossible to perfectly preserve the above requirements. Be sure to note where you deviate.
-
-Improvements are also welcome as part of Technical and Design achievements.
-
-Libraries, Tools, Languages
----
-
-You are required to use 10 different tools.
-Of the 10 tools, you must use at least 3 languages.
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
-
-Otherwise, you should seek tools and libraries to fill out your 10.
-
-Below are a few ideas. Do not limit yourself to this list!
-Some are poor choices (like SPSS).
-
-I have marked a few that are strongly suggested.
-
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- SPSS
-- d3 `<- since the rest of the class uses this, it's a good idea to use it`
-- HighCharts
-- nvd3
-- Matplotlib
-- Matlab
-- Processing
-- Tableau
-- Java 2d
-- GNUplot
-- Vega/Vega-lite
-
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
-
-Tips
----
-
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://github.com/mbostock/d3/wiki/Requests) to load the data you found.
-Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads.
-
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See this [ebook](http://chimera.labs.oreilly.com/books/1230000000345/ch04.html#_setting_up_a_web_server) if you're stuck.
-
-
-Readme Requirements
----
-
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
-
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-
-Other Requirements
----
-
-0. Your code should be forked from the GitHub repo and linked using GitHub pages.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
 
 # R + ggplot2
 
@@ -153,13 +41,68 @@ being able to drag and drop the weight measure and manufacturer dimension over t
 was also very simple as well. Tableau also identified null values and prompted the option to remove them from the dataset.
 ![tableau](img/tableau.png)
 
+# excel
+
+Excel was surprisingly difficult to use to create this chart at first. I spent a decent amount
+of time looking into VBA subroutines with scatter charts before realizing a bubble chart would do the trick.
+Even after figuring this out, a lot of spreadsheet manipulation was necessary - pulling out the weight, MPG, and
+manufacturer columns. I thought it was slightly counterintuitive the way the tutorial I found had the spreadsheet set up - splitting up each
+categorical item into its own column. Having said this, I am no excel expert, the documentation is robust, and it took significantly less time than
+the matplotlib solution.
+
+![excel](img/excel.png)
+
+# python + plotly
+
+After using matplotlib with python, ploty was extremely easy to use. I could re-use almost
+all set up code reading the csv file into numpy arrays for each of the weight, mpg, and manufacturer
+attributes. I thought the documentation for plotly was better and gave a much more simple way to adjust
+axes attributes with settings like tick0, dtick, etc. I couldn't figure this out without hard coding in matplotlib
+but in plotly it took a couple minutes. The support for online plotting was also really cool.
+
+![plotly](img/plotly.png)
+
+# google sheets
+
+Google sheets was significantly easier to use than excel for this visualization. It's axes immediately 
+adapted to the dataset and the chart customization was much more user friendly in terms of choosing which data
+set was represented as x-axis, y-axis, or bubble size. It also didn't require much spreadsheet manipulation - I just selected
+the four columns with relevant data and could do the customization afterwards. One drawback is it didn't allow
+for scaling of the bubble size as excel did - which led to the chart being harder to read to the right where
+the bubble sizes are all closer to the max size (sizes them based off the range of the dataset).
+
+![googlesheets](img/googlesheets.png)
+
+# nvd3
+
+Using nvd3 was relatively straightforward after using d3. Nvd3 is built with d3 v3 however, so the d3 aspects are slightly different.
+It took me a while to format the data correctly to feed it into the d3.datum() function. Nvd3 doesn't have robust documentation or APIs yet so
+that blocked me into having trouble breaking out of the example I started with for features such as color and axes range/padding/tick marks.
+
+![nvd3](img/nvd3.png)
+
+# javafx
+
+Working with javafx was one of the harder tools. I struggled to adjust colors and sizes
+from the java code due to the interfacing with css. I'm familar with java so the setup was simple.
+![javafx](img/javafx.png)
+
+# processing
+
+After struggling with javafx, Processing with the help of the gicentre charting library was a 
+breath of fresh air. Similar to google sheets and a couple other tools above, setting axis ranges was very simple, and
+the setPointColor and setPointSize functions had versions allowing for correponding arrays similar to the python numpy setups.
+![processing](img/processing.png)
+
 
 ## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI**: ...
+My main technical achievement is the variety of languages used vs just UI tools. I used two
+python libraries, two javascript libraries, and two java libraries whereas the requirement was only 3.
 
 ### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: Shown in my colorscheme...
+My design achievements primarily include color choices and aesthetics especially in the d3/nvd3 visualizations.
+I used the d3 colorscale in the nvd3 visualization which allowed the colors to fit more smoothly with each other.
+
 
 ## Sources
 http://learnjsdata.com/read_data.html
@@ -172,3 +115,18 @@ http://www.cookbook-r.com/Graphs/Scatterplots_(ggplot2)/
 https://pythonprogramming.net/reading-csv-files-python-3/
 https://plot.ly/matplotlib/scatter/#basic-matplotlib-scatter-plot
 https://stackoverflow.com/questions/12236566/setting-different-color-for-each-series-in-scatter-plot-on-matplotlib
+http://onlinehelp.tableau.com/current/pro/desktop/en-us/viewparts_marks_markproperties_color.html
+https://www.thedataschool.co.uk/borja-leiva/creating-scatter-plots-tableau/
+https://www.myexcelonline.com/blog/bubble-chart-3-variables-on-a-chart/
+https://www.extendoffice.com/documents/excel/2347-excel-bubble-chart-color-based-on-value.html
+https://plot.ly/python/line-and-scatter/
+https://plot.ly/python/reference/#layout-xaxis-tickmode
+https://plot.ly/python/axes/#set-and-style-axes-title-labels-and-ticks
+https://productforums.google.com/forum/#!topic/docs/LZqnQng8NwA;context-place=topicsearchin/docs/category$3Awindows
+https://github.com/nvd3-community/nvd3/blob/gh-pages/examples/scatterChart.html
+http://nvd3.org/index.html
+https://www.mkyong.com/java/how-to-read-and-parse-csv-file-in-java/
+https://gist.github.com/jewelsea/5094893
+https://docs.oracle.com/javafx/2/charts/scatter-chart.htm
+http://gicentre.org/utils/reference/org/gicentre/utils/stat/XYChart.html#setPointColour-float:A-org.gicentre.utils.colour.ColourTable-
+https://www.gicentre.net/utils/chart/
