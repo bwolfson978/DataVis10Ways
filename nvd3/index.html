@@ -72,7 +72,11 @@
         });
         chart.xAxis.tickFormat(d3.format('.02f'));
         chart.yAxis.tickFormat(d3.format('.02f'));
-        chart.xAxis.
+        chart.xAxis.tickValues([2000,3000,4000,5000]);
+        chart.yAxis.tickValues([10,20,30,40]);
+        chart.xDomain([1500, 5000]);
+        chart.yDomain([7, 50])
+
         d3.select('#test1 svg')
             .datum(formatData(dataset))
             .call(chart);
