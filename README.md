@@ -99,10 +99,16 @@ the setPointColor and setPointSize functions had versions allowing for correpond
 My main technical achievement is the variety of languages used vs just UI tools. I used two
 python libraries, two javascript libraries, and two java libraries whereas the requirement was only 3.
 
+Additionally, I incorporated interactivity into a few of the visualizations including nvd3 where
+it is possible to turn off a categorical grouping of points by clicking the legend in the top corner. This is
+shown here:
+https://bwolfson978.github.io/02-DataVis-10ways/index.html
+
 ### Design Achievements
 My design achievements primarily include color choices and aesthetics especially in the d3/nvd3 visualizations.
 I used the d3 colorscale in the nvd3 visualization which allowed the colors to fit more smoothly with each other.
 
+Additionally, most of my visualizations have legends corresponding to the color choices.
 
 ## Sources
 http://learnjsdata.com/read_data.html
